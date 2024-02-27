@@ -9,7 +9,7 @@ inputs:
   question:
     type: string
     is_chat_input: true
-    default: Can you tell me about your jackets?
+    default: what was in my last order?
   customerId:
     type: string
     default: "2"

@@ -1,5 +1,5 @@
 environment:
-  image: docker.io/sethjuarez/contoso-store:v20240124.1
+  python_requirements_txt: requirements.txt
 inputs:
   chat_history:
     type: list
@@ -9,12 +9,12 @@ inputs:
   question:
     type: string
     default: What can you tell me about your jackets?
-    is_chat_input: true
+    is_chat_input: false
     is_chat_history: false
   customerId:
     type: string
     default: "2"
-    is_chat_input: false
+    is_chat_input: true
     is_chat_history: false
 outputs:
   answer:

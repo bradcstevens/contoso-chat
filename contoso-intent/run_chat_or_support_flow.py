@@ -4,7 +4,9 @@ import os
 import urllib.request
 import json
 import ssl
+from dotenv import load_dotenv
 
+load_dotenv()
 
 def allowSelfSignedHttps(allowed):
 # bypass the server certificate verification on client side
@@ -38,7 +40,7 @@ def call_endpoint(url, api_key, input_data, model_deployment_name):
         answer = resultjson['answer']
         context = resultjson['context']
 
-        if(model_deployment_name ==  'contoso-support'):
+        if(model_deployment_name ==  'contoso-support-aiproj-deploy'):
             citations = resultjson['citations']
             customer_data = resultjson['customer_data']
             query_rewrite = resultjson['query_rewrite']
@@ -69,16 +71,16 @@ def run_chat_or_support_flow(
     if "support" in user_intent:
         # call chat endpoint and return response (input is question and customer id in json format)
         print("running support flow")
-        url = support_endpoint['api_base']
-        key = support_endpoint['api_key']
+        url = os.environ["CONTOSO_SUPPORT_ENDPOINT"]
+        key = os.environ["CONTOSO_SUPPORT_KEY"]
 
         input_data = {"question": question, "customerId": customerId, "chat_history": chat_history}
-        return call_endpoint(url, key, input_data, "contoso-support-9f8e7b")
+        return call_endpoint(url, key, input_data, "contoso-support-aiproj-deploy")
     else:
         # call support endpoint and return response (input is question and customer id in json format)
         print("running chat flow")
-        url = chat_endpoint['api_base']
-        key = chat_endpoint['api_key']
+        url = os.environ["CONTOSO_CHAT_ENDPOINT"]
+        key = os.environ["CONTOSO_CHAT_KEY"]
 
         input_data = {"question": question, "customerId": customerId, "chat_history": chat_history}
-        return call_endpoint(url, key, input_data, "contoso-chat-b7a357")
+        return call_endpoint(url, key, input_data, "contoso-chat-aiproj-deploy")

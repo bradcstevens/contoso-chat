@@ -34,7 +34,6 @@ nodes:
     tool: promptflow.tools.embedding.embedding
   inputs:
     connection: aoai-connection
-    deployment_name: text-embedding-ada-002
     input: ${inputs.question}
   use_variants: false
 - name: customer_lookup
