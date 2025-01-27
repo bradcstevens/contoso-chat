@@ -1,5 +1,5 @@
 embeddings:
-  api_base: https://ai-contosochataiprojecthub132474581317.openai.azure.com
+  api_base: https://oai-contoso-chat-lab173297863631.cognitiveservices.azure.com
   api_type: azure
   api_version: 2023-03-15-preview
   batch_size: '16'
@@ -8,7 +8,7 @@ embeddings:
   connection_type: environment
   deployment: text-embedding-ada-002
   dimension: 1536
-  endpoint: https://ai-contosochataiprojecthub132474581317.openai.azure.com/
+  endpoint: https://oai-contoso-chat-lab173297863631.cognitiveservices.azure.com/
   kind: open_ai
   model: text-embedding-ada-002
   schema_version: '2'
@@ -17,7 +17,7 @@ index:
   connection:
     key: AZURE_AI_SEARCH_KEY
   connection_type: environment
-  endpoint: https://search-contoso-chat-ai.search.windows.net
+  endpoint: https://srch-contoso-chat-lab173297863631.search.windows.net
   engine: azure-sdk
   field_mapping:
     content: content

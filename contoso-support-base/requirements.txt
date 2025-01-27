@@ -1,5 +1,7 @@
 promptflow
 promptflow-tools
+promptflow.azure
 azure-cosmos
 azure-search-documents==11.4.0
 azure-ai-ml
+openai<=1.44.1
